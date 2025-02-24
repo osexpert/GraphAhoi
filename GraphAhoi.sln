@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35521.163
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{32947B7B-FCA1-49A9-B4FE-EC8D44FD3DA7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphAhoi", "GraphAhoi\GraphAhoi.csproj", "{1CB37C07-C78B-3E2E-AF90-9335D545B676}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphAhoi.Tests", "GraphAhoi.Tests\GraphAhoi.Tests.csproj", "{327D5DE8-6FE2-4122-9874-54F658383BA3}"
@@ -15,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{32947B7B-FCA1-49A9-B4FE-EC8D44FD3DA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{32947B7B-FCA1-49A9-B4FE-EC8D44FD3DA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{32947B7B-FCA1-49A9-B4FE-EC8D44FD3DA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{32947B7B-FCA1-49A9-B4FE-EC8D44FD3DA7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1CB37C07-C78B-3E2E-AF90-9335D545B676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1CB37C07-C78B-3E2E-AF90-9335D545B676}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CB37C07-C78B-3E2E-AF90-9335D545B676}.Release|Any CPU.ActiveCfg = Release|Any CPU
