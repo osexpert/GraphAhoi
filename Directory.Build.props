@@ -1,0 +1,46 @@
+<Project>
+  <PropertyGroup>
+
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <LangVersion>Latest</LangVersion>
+    <NoWarn>1701;1702;1591;1573</NoWarn>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+<!--
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)\keypair.key</AssemblyOriginatorKeyFile>
+    -->
+    <RepoRootPath>$(MSBuildThisFileDirectory)</RepoRootPath>
+    <PackageOutputPath>$(RepoRootPath)bin\Packages\$(Configuration)\NuGet\</PackageOutputPath>
+
+    <PackageProjectUrl>https://github.com/osexpert/GraphAhoi</PackageProjectUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/osexpert/GraphAhoi.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Company>osexpert</Company>      
+    <PackageReleaseNotes>See https://github.com/osexpert/GraphAhoi/blob/main/CHANGELOG.md for details</PackageReleaseNotes>
+    
+    <VersionPrefix>0.0.1</VersionPrefix>
+    <PackageTags>graph tracing dfs bfs retrofit</PackageTags>
+    <Description>Graph library for tracing forward, backward, completely etc. using DFS or BFS. Optional delegates to control tracing of edges and nodes. Can adapt to existing graphs without changes.</Description>        
+		        
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+		              
+<!--
+
+
+    
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols Condition=" '$(DebugType)' != 'embedded' ">true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    
+    -->
+    
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="$(RepoRootPath)README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+    
+</Project>
