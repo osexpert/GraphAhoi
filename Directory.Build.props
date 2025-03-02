@@ -21,8 +21,8 @@
     <Company>osexpert</Company>      
     <PackageReleaseNotes>See https://github.com/osexpert/GraphAhoi/blob/main/CHANGELOG.md for details</PackageReleaseNotes>
     
-    <VersionPrefix>0.0.1</VersionPrefix>
-    <PackageTags>graph tracing dfs bfs retrofit</PackageTags>
+    <VersionPrefix>0.0.2</VersionPrefix>
+    <PackageTags>graph tracing dfs bfs topological-ordering retrofit</PackageTags>
     <Description>Graph library for tracing forward, backward, completely etc. using DFS or BFS. Optional delegates to control tracing of edges and nodes. Can adapt to existing graphs without changes.</Description>        
 		        
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
