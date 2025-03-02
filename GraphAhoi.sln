@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphAhoi", "GraphAhoi\Grap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphAhoi.Tests", "GraphAhoi.Tests\GraphAhoi.Tests.csproj", "{327D5DE8-6FE2-4122-9874-54F658383BA3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples", "Examples\Examples.csproj", "{C51CF339-C0CA-455B-95BD-EC4206C3BD19}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{327D5DE8-6FE2-4122-9874-54F658383BA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{327D5DE8-6FE2-4122-9874-54F658383BA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{327D5DE8-6FE2-4122-9874-54F658383BA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C51CF339-C0CA-455B-95BD-EC4206C3BD19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C51CF339-C0CA-455B-95BD-EC4206C3BD19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C51CF339-C0CA-455B-95BD-EC4206C3BD19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C51CF339-C0CA-455B-95BD-EC4206C3BD19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
