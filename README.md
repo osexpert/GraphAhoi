@@ -57,10 +57,12 @@ internal class RetrofitExample
         var trace4 = tracer.TraceBackwardAndForward(selection);
 
         // Control tracing with delegates
-        var trace5 = tracer.TraceCompletely(selection, shouldTraceEdge: (edg, _)
-            => edg.EdgeData == 42, shouldTraceNode: node => node.NodeData == 42);
-        var trac65 = tracer.TraceCompletely(selection, shouldTraceEdge: (edg, direction)
-            => direction == Direction.Forward && edg.EdgeData == 42, shouldTraceNode: node => node.NodeData == 42);
+        var trace5 = tracer.TraceCompletely(selection, 
+			shouldTraceEdge: (edg, _) => edg.EdgeData == 42,
+			shouldTraceNode: (node, _) => node.NodeData == 42);
+        var trac65 = tracer.TraceCompletely(selection,
+			shouldTraceEdge: (edg, direction) => direction == Direction.Forward && edg.EdgeData == 42, 
+			shouldTraceNode: (node, direction) => node.NodeData == 42 && direction == Direction.Backward);
 
         // Extension method
         var ordered = selection.TopologicalOrder(n => n.Inlinks.Select(f => f.From));

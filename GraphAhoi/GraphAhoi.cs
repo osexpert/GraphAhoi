@@ -132,7 +132,7 @@ public abstract class GraphTracerBase<TNode, TEdge>
        bool traceInEdges,
        bool traceOutEdges,
        Func<TEdge, Direction, bool>? shouldTraceEdge = null,
-       Func<TNode, bool>? shouldTraceNode = null
+       Func<TNode, Direction, bool>? shouldTraceNode = null
        )
     {
 		IEnumerable<TNode> GetDeps(TNode node)
@@ -142,7 +142,7 @@ public abstract class GraphTracerBase<TNode, TEdge>
 					if (shouldTraceEdge == null || shouldTraceEdge(inEdge, Direction.Backward))
 					{
 						var sourceNode = GetSourceNode(inEdge);
-						if (shouldTraceNode == null || shouldTraceNode(sourceNode))
+						if (shouldTraceNode == null || shouldTraceNode(sourceNode, Direction.Backward))
 						{
 							yield return sourceNode;
 						}
@@ -153,7 +153,7 @@ public abstract class GraphTracerBase<TNode, TEdge>
 					if (shouldTraceEdge == null || shouldTraceEdge(outEdge, Direction.Forward))
 					{
 						var targetNode = GetTargetNode(outEdge);
-						if (shouldTraceNode == null || shouldTraceNode(targetNode))
+						if (shouldTraceNode == null || shouldTraceNode(targetNode, Direction.Forward))
 						{
 							yield return targetNode;
 						}
@@ -275,7 +275,7 @@ public abstract class GraphTracerBase<TNode, TEdge>
         bool traceInEdges,
         bool traceOutEdges,
         Func<TEdge, Direction, bool>? shouldTraceEdge = null,
-        Func<TNode, bool>? shouldTraceNode = null
+        Func<TNode, Direction, bool>? shouldTraceNode = null
         )
     {
         HashSet<TNode> visited = new();
@@ -299,7 +299,7 @@ public abstract class GraphTracerBase<TNode, TEdge>
                     if (shouldTraceEdge == null || shouldTraceEdge(inEdge, Direction.Backward))
                     {
                         var sourceNode = GetSourceNode(inEdge);
-                        if (shouldTraceNode == null || shouldTraceNode(sourceNode))
+                        if (shouldTraceNode == null || shouldTraceNode(sourceNode, Direction.Backward))
                         {
                             if (visited.Add(sourceNode))
                             {
@@ -314,7 +314,7 @@ public abstract class GraphTracerBase<TNode, TEdge>
                     if (shouldTraceEdge == null || shouldTraceEdge(outEdge, Direction.Forward))
                     {
                         var targetNode = GetTargetNode(outEdge);
-                        if (shouldTraceNode == null || shouldTraceNode(targetNode))
+                        if (shouldTraceNode == null || shouldTraceNode(targetNode, Direction.Forward))
                         {
                             if (visited.Add(targetNode))
                             {
@@ -331,7 +331,7 @@ public abstract class GraphTracerBase<TNode, TEdge>
         bool traceInEdges,
         bool traceOutEdges,
         Func<TEdge, Direction, bool>? shouldTraceEdge = null,
-        Func<TNode, bool>? shouldTraceNode = null
+        Func<TNode, Direction, bool>? shouldTraceNode = null
         )
     {
         return _algo switch
@@ -348,7 +348,7 @@ public abstract class GraphTracerBase<TNode, TEdge>
     /// </summary>
     public IEnumerable<TNode> TraceStartNodes(IEnumerable<TNode> sources, 
         Func<TEdge, Direction, bool>? shouldTraceEdge = null,
-        Func<TNode, bool>? shouldTraceNode = null
+        Func<TNode, Direction, bool>? shouldTraceNode = null
         ) => TraceBackward(sources, shouldTraceEdge, shouldTraceNode).Where(node => !GetInEdges(node).Any());
 
     /// <summary>
@@ -356,7 +356,7 @@ public abstract class GraphTracerBase<TNode, TEdge>
     /// </summary>
     public IEnumerable<TNode> TraceEndNodes(IEnumerable<TNode> sources, 
         Func<TEdge, Direction, bool>? shouldTraceEdge = null,
-        Func<TNode, bool>? shouldTraceNode = null
+        Func<TNode, Direction, bool>? shouldTraceNode = null
         ) => TraceForward(sources, shouldTraceEdge, shouldTraceNode).Where(node => !GetOutEdges(node).Any());
 
     /// <summary>
@@ -364,7 +364,7 @@ public abstract class GraphTracerBase<TNode, TEdge>
     /// </summary>
     public IEnumerable<TNode> TraceCompletely(IEnumerable<TNode> sources, 
         Func<TEdge, Direction, bool>? shouldTraceEdge = null,
-        Func<TNode, bool>? shouldTraceNode = null
+        Func<TNode, Direction, bool>? shouldTraceNode = null
         ) => TraceInternal(sources, true, true, shouldTraceEdge, shouldTraceNode);
 
     /// <summary>
@@ -372,7 +372,7 @@ public abstract class GraphTracerBase<TNode, TEdge>
     /// </summary>
     public IEnumerable<TNode> TraceForward(IEnumerable<TNode> sources,
         Func<TEdge, Direction, bool>? shouldTraceEdge = null,
-        Func<TNode, bool>? shouldTraceNode = null
+        Func<TNode, Direction, bool>? shouldTraceNode = null
         ) => TraceInternal(sources, false, true, shouldTraceEdge, shouldTraceNode);
 
     /// <summary>
@@ -380,7 +380,7 @@ public abstract class GraphTracerBase<TNode, TEdge>
     /// </summary>
     public IEnumerable<TNode> TraceBackward(IEnumerable<TNode> sources, 
         Func<TEdge, Direction, bool>? shouldTraceEdge = null,
-        Func<TNode, bool>? shouldTraceNode = null
+        Func<TNode, Direction, bool>? shouldTraceNode = null
         ) => TraceInternal(sources, true, false, shouldTraceEdge, shouldTraceNode);
 
     /// <summary>

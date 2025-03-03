@@ -1,3 +1,6 @@
+## 0.0.3
+* Add direction to shouldTraceNode
+
 ## 0.0.2
 * Fix README formatting
 
