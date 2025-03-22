@@ -11,10 +11,10 @@ namespace GraphAhoi.Tests
 		{
 			List<Node> nodes = CreateTestGraph();
 
-			var gt = new GraphTracerAdapter(GraphTracerAlgo.BFS);
+			var gt = new GraphTracerAdapter();
 
 			var root = nodes[0];
-			var fwdTrace = gt.TraceForward([root]).ToList();
+			var fwdTrace = gt.TraceForward(Traversal.BFS, [root]).ToList();
 
 			//Level 0: 1
 			//Level 1: 2-> 3-> 4
@@ -37,10 +37,10 @@ namespace GraphAhoi.Tests
 		{
 			List<Node> nodes = CreateTestGraph();
 
-			var gt = new GraphTracerAdapter(GraphTracerAlgo.DFS);
+			var gt = new GraphTracerAdapter();
 
 			var root = nodes[0];
-			var fwdTrace = gt.TraceForward([root]).ToList();
+			var fwdTrace = gt.TraceForward(Traversal.DFS, [root]).ToList();
 
 			//Branch 1: 1-> 2-> 5-> 8-> 7 > 9
 			//Branch 2: 6
@@ -76,11 +76,6 @@ namespace GraphAhoi.Tests
 
 		class GraphTracerAdapter : GraphTracerBase<Node, Edge>
 		{
-			public GraphTracerAdapter(GraphTracerAlgo algo) : base(algo)
-			{
-				
-			}
-
 			protected override IEnumerable<Edge> GetInEdges(Node node)
 				=> node.InEdges;
 

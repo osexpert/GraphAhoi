@@ -12,12 +12,11 @@ namespace GraphAhoi.Tests
 		{
 			List<Node> nodes = CreateTestGraph();
 
-			var gt = new GraphTracer<Node, Edge>(GraphTracerAlgo.BFS);
-			var str = GetIdString(gt.TraceStartNodes(nodes));
+			var gt = new GraphTracer<Node, Edge>();
+			var str = GetIdString(gt.TraceStartNodes(Traversal.BFS, nodes));
 			Assert.AreEqual("1", str);
 
-			var gt2 = new GraphTracer<Node, Edge>(GraphTracerAlgo.DFS);
-			var str2 = GetIdString(gt2.TraceStartNodes(nodes));
+			var str2 = GetIdString(gt.TraceStartNodes(Traversal.DFS, nodes));
 			Assert.AreEqual("1", str2);
 		}
 
@@ -26,12 +25,11 @@ namespace GraphAhoi.Tests
 		{
 			List<Node> nodes = CreateTestGraph();
 
-			var gt = new GraphTracer<Node, Edge>(GraphTracerAlgo.BFS);
-			var str = GetIdString(gt.TraceEndNodes(nodes));
+			var gt = new GraphTracer<Node, Edge>();
+			var str = GetIdString(gt.TraceEndNodes(Traversal.BFS, nodes));
 			Assert.AreEqual("4,6,9", str);
 
-			var gt2 = new GraphTracer<Node, Edge>(GraphTracerAlgo.DFS);
-			var str2 = GetIdString(gt2.TraceEndNodes(nodes));
+			var str2 = GetIdString(gt.TraceEndNodes(Traversal.DFS, nodes));
 			Assert.AreEqual("9,6,4", str2);
 		}
 
@@ -42,12 +40,11 @@ namespace GraphAhoi.Tests
 
 			var n7 = nodes[6];
 
-			var gt = new GraphTracer<Node, Edge>(GraphTracerAlgo.BFS);
-			var str = GetIdString(gt.TraceForward([n7]));
+			var gt = new GraphTracer<Node, Edge>();
+			var str = GetIdString(gt.TraceForward(Traversal.BFS, [n7]));
 			Assert.AreEqual("7,9", str);
 
-			var gt2 = new GraphTracer<Node, Edge>(GraphTracerAlgo.DFS);
-			var str2 = GetIdString(gt2.TraceForward([n7]));
+			var str2 = GetIdString(gt.TraceForward(Traversal.DFS, [n7]));
 			Assert.AreEqual("7,9", str2);
 		}
 
@@ -58,12 +55,11 @@ namespace GraphAhoi.Tests
 
 			var n7 = nodes[6];
 
-			var gt = new GraphTracer<Node, Edge>(GraphTracerAlgo.BFS);
-			var str = GetIdString(gt.TraceBackward([n7]));
+			var gt = new GraphTracer<Node, Edge>();
+			var str = GetIdString(gt.TraceBackward(Traversal.BFS, [n7]));
 			Assert.AreEqual("7,2,8,1,5", str);
 
-			var gt2 = new GraphTracer<Node, Edge>(GraphTracerAlgo.DFS);
-			var str2 = GetIdString(gt2.TraceBackward([n7]));
+			var str2 = GetIdString(gt.TraceBackward(Traversal.DFS, [n7]));
 			Assert.AreEqual("7,2,1,8,5", str2);
 		}
 
@@ -74,12 +70,11 @@ namespace GraphAhoi.Tests
 
 			var n7 = nodes[6];
 
-			var gt = new GraphTracer<Node, Edge>(GraphTracerAlgo.BFS);
-			var str = GetIdString(gt.TraceBackwardAndForward([n7]));
+			var gt = new GraphTracer<Node, Edge>();
+			var str = GetIdString(gt.TraceBackwardAndForward(Traversal.BFS, [n7]));
 			Assert.AreEqual("7,2,8,1,5,9", str);
 
-			var gt2 = new GraphTracer<Node, Edge>(GraphTracerAlgo.DFS);
-			var str2 = GetIdString(gt2.TraceBackwardAndForward([n7]));
+			var str2 = GetIdString(gt.TraceBackwardAndForward(Traversal.DFS, [n7]));
 			Assert.AreEqual("7,2,1,8,5,9", str2);
 		}
 
@@ -90,12 +85,11 @@ namespace GraphAhoi.Tests
 
 			var n7 = nodes[6];
 
-			var gt = new GraphTracer<Node, Edge>(GraphTracerAlgo.BFS);
-			var str = GetIdString(gt.TraceCompletely([n7]));
+			var gt = new GraphTracer<Node, Edge>();
+			var str = GetIdString(gt.TraceCompletely(Traversal.BFS, [n7]));
 			Assert.AreEqual("7,2,8,9,1,5,6,3,4", str);
 
-			var gt2 = new GraphTracer<Node, Edge>(GraphTracerAlgo.DFS);
-			var str2 = GetIdString(gt2.TraceCompletely([n7]));
+			var str2 = GetIdString(gt.TraceCompletely(Traversal.DFS, [n7]));
 			Assert.AreEqual("7,2,1,3,4,5,8,6,9", str2);
 		}
 
@@ -110,12 +104,11 @@ namespace GraphAhoi.Tests
 
 			var n1 = nodes[0];
 
-			var gt = new GraphTracer<Node, Edge>(GraphTracerAlgo.BFS);
-			var str = GetIdString(gt.TraceCompletely([n1]));
+			var gt = new GraphTracer<Node, Edge>();
+			var str = GetIdString(gt.TraceCompletely(Traversal.BFS, [n1]));
 			Assert.AreEqual("1,2,3,4,5,6,7,8,9", str);
 
-			var gt2 = new GraphTracer<Node, Edge>(GraphTracerAlgo.DFS);
-			var str2 = GetIdString(gt2.TraceCompletely([n1]));
+			var str2 = GetIdString(gt.TraceCompletely(Traversal.DFS, [n1]));
 			Assert.AreEqual("1,2,5,8,7,9,6,3,4", str2);
 		}
 
@@ -129,12 +122,11 @@ namespace GraphAhoi.Tests
 
 			var n1 = nodes[0];
 
-			var gt = new GraphTracer<Node, Edge>(GraphTracerAlgo.BFS);
-			var str = GetIdString(gt.TraceForward([n1]));
+			var gt = new GraphTracer<Node, Edge>();
+			var str = GetIdString(gt.TraceForward(Traversal.BFS, [n1]));
 			Assert.AreEqual("1,2,3,4,5,6,7,8,9", str);
 
-			var gt2 = new GraphTracer<Node, Edge>(GraphTracerAlgo.DFS);
-			var str2 = GetIdString(gt2.TraceForward([n1]));
+			var str2 = GetIdString(gt.TraceForward(Traversal.DFS, [n1]));
 			Assert.AreEqual("1,2,5,8,7,9,6,3,4", str2);
 		}
 
@@ -196,10 +188,10 @@ namespace GraphAhoi.Tests
 		{
 			List<Node> nodes = CreateTestGraph();
 
-			var gt = new GraphTracer<Node, Edge>(GraphTracerAlgo.BFS);
+			var gt = new GraphTracer<Node, Edge>();
 
 			var root = nodes[0];
-			var fwdTrace = gt.TraceForward([root]).ToList();
+			var fwdTrace = gt.TraceForward(Traversal.BFS, [root]).ToList();
 
 			//Level 0: 1
 			//Level 1: 2-> 3-> 4
@@ -214,10 +206,10 @@ namespace GraphAhoi.Tests
 		{
 			List<Node> nodes = CreateTestGraph();
 
-			var gt = new GraphTracer<Node, Edge>(GraphTracerAlgo.DFS);
+			var gt = new GraphTracer<Node, Edge>();
 
 			var root = nodes[0];
-			var fwdTrace = gt.TraceForward([root]).ToList();
+			var fwdTrace = gt.TraceForward(Traversal.DFS, [root]).ToList();
 
 			//Branch 1: 1-> 2-> 5-> 8-> 7 > 9
 			//Branch 2: 6

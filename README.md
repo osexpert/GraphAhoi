@@ -60,7 +60,7 @@ internal class RetrofitExample
         var trace5 = tracer.TraceCompletely(selection, 
 			shouldTraceEdge: (edg, _) => edg.EdgeData == 42,
 			shouldTraceNode: (node, _) => node.NodeData == 42);
-        var trac65 = tracer.TraceCompletely(selection,
+        var trace6 = tracer.TraceCompletely(selection,
 			shouldTraceEdge: (edg, direction) => direction == Direction.Forward && edg.EdgeData == 42, 
 			shouldTraceNode: (node, direction) => node.NodeData == 42 && direction == Direction.Backward);
 
